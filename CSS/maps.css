@@ -1,0 +1,24 @@
+/* Ajoutez des styles spécifiques pour la page des cartes ici */
+
+.map {
+    margin-bottom: 30px;
+    text-align: center; /* Pour centrer le contenu de chaque section */
+}
+
+.map img {
+    display: block;
+    margin: 0 auto; /* Pour centrer l'image horizontalement */
+    max-width: 500px; /* Taille maximale pour les images */
+    width: 100%; /* Pour empêcher l'image de dépasser de la section */
+}
+
+.map h2 {
+    text-align: center; /* Centrer le titre */
+    margin-top: 10px; /* Ajouter un peu d'espace au-dessus du titre */
+}
+
+.map p {
+    text-align: justify; /* Justifier le texte */
+    margin: 0 auto; /* Centrer le texte horizontalement */
+    max-width: 700px; /* Limiter la largeur du texte pour une meilleure lisibilité */
+}

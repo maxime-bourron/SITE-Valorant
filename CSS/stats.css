@@ -1,0 +1,41 @@
+/* Ajoutez des styles spécifiques pour la page de statistiques ici */
+
+.form-section, .stats-section {
+    margin-bottom: 30px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+}
+
+form input {
+    width: 97.3%;
+    padding: 8px;
+    margin-bottom: 20px;
+}
+
+form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+#stats-container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}

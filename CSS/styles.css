@@ -1,0 +1,44 @@
+/* Reset des styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 auto; /* Centrer horizontalement le contenu */
+    max-width: 700px; /* Ajuster la largeur maximale du contenu */
+    background-color: #a333ff6e; /* Gris clair */
+}
+
+header, nav, main, footer {
+    margin: 20px auto; /* Centrer horizontalement avec une marge en haut */
+}
+
+header {
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin-bottom: 40px;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+img {
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 60px;
+}

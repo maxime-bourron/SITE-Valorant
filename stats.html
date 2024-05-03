@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistiques - Valorant</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/stats.css">
+</head>
+<body>
+    <header>
+        <h1>Statistiques de Valorant</h1>
+        <p>Entrez les résultats de vos parties pour suivre vos performances.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="maps.html">Cartes</a></li>
+            <li><a href="stats.html">Statistiques</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="form-section">
+            <h2>Entrez vos résultats</h2>
+            <form id="stats-form">
+                <label for="map">Carte jouée :</label>
+                <select id="map" name="map">
+                    <option value="bind">Bind</option>
+                    <option value="haven">Haven</option>
+                    <!-- Ajoutez d'autres options pour d'autres cartes si nécessaire -->
+                </select>
+
+                <label for="result">Résultat :</label>
+                <select id="result" name="result">
+                    <option value="win">Victoire</option>
+                    <option value="loss">Défaite</option>
+                    <option value="draw">Match nul</option>
+                </select>
+
+                <label for="kills">Kills :</label>
+                <input type="number" id="kills" name="kills" min="0" step="1">
+
+                <label for="deaths">Morts :</label>
+                <input type="number" id="deaths" name="deaths" min="0" step="1">
+
+                <button type="submit">Soumettre</button>
+            </form>
+        </section>
+
+        <section class="stats-section">
+            <h2>Statistiques</h2>
+            <div id="stats-container">
+                <!-- Les statistiques seront affichées ici -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Valorant. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
