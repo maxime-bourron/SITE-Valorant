@@ -10,7 +10,7 @@ form label {
 }
 
 form select {
-    width: 40%;
+    width: 100%;
     padding: 8px;
     margin-bottom: 20px;
 }

@@ -10,8 +10,9 @@ statsForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
     // Récupère les valeurs des champs du formulaire
-    const map = statsForm.elements['map'].value;
     const result = statsForm.elements['result'].value;
+    const map = statsForm.elements['map'].value;
+    const agent = statsForm.elements['agent'].value;
     const kills = parseInt(statsForm.elements['kills'].value);
     const deaths = parseInt(statsForm.elements['deaths'].value);
 
@@ -31,7 +32,7 @@ statsForm.addEventListener('submit', function(event) {
     statItem.classList.add('stat-item');
 
     // Génère le texte à afficher en fonction des valeurs soumises
-    let statText = `${map}, `;
+    let statText = ``;
     switch(result) {
         case 'win':
             statText += 'Victoire';
@@ -45,7 +46,9 @@ statsForm.addEventListener('submit', function(event) {
         default:
             statText += 'Résultat inconnu';
     }
-
+    statText += ` sur ${map}`;
+    statText += ` avec ${agent}`;
+    
     // Ajoute le nombre de kills au texte si une valeur est saisie
     if (!isNaN(kills)) {
         statText += `, ${kills} kills`;
@@ -59,6 +62,9 @@ statsForm.addEventListener('submit', function(event) {
     // Ajoute le texte généré à l'élément div
     statItem.textContent = statText;
 
-    // Ajoute l'élément div au conteneur des statistiques
-    statsContainer.appendChild(statItem);
+    // Sélectionne l'élément qui est actuellement en haut (après les barres de progression)
+    const firstStatItem = document.querySelector('.stat-item');
+
+    // Ajoute l'élément div avant cet élément (après les barres de progression)
+    statsContainer.insertBefore(statItem, firstStatItem);
 });
