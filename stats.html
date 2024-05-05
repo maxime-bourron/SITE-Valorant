@@ -22,16 +22,21 @@
     </nav>
 
     <main>
-        <section class="form-section">
-            <h2>Entrez vos résultats</h2>
-            <form id="stats-form">
+        <form id="stats-form">
+            <div class="column">
                 <label for="result">Résultat :</label>
                 <select id="result" name="result">
                     <option value="win">Victoire</option>
                     <option value="loss">Défaite</option>
                     <option value="draw">Match nul</option>
                 </select>
-                
+
+                <label for="roundwin">Manches Gagnées :</label>
+                <input type="number" id="roundwin" name="roundwin" min="0" step="1">
+
+                <label for="roundloose">Manches Perdus :</label>
+                <input type="number" id="roundloose" name="roundloose" min="0" step="1">
+
                 <label for="agent">Agent joué :</label>
                 <select id="agent" name="agent">
                     <option value="Jett">Jett</option>
@@ -59,6 +64,17 @@
                     <option value="Iso">Iso</option>
                     <option value="Clove">Clove</option>
                 </select>
+            </div>
+
+            <div class="column">
+                <label for="kills">Kills :</label>
+                <input type="number" id="kills" name="kills" min="0" step="1">
+
+                <label for="deaths">Morts :</label>
+                <input type="number" id="deaths" name="deaths" min="0" step="1">
+
+                <label for="assists">Assists :</label>
+                <input type="number" id="assists" name="assists" min="0" step="1">
 
                 <label for="map">Carte jouée :</label>
                 <select id="map" name="map">
@@ -73,25 +89,10 @@
                     <option value="Ascent">Ascent</option>
                     <option value="Breeze">Breeze</option>
                 </select>
-                
-                <label for="roundwin">Manches Gagnées :</label>
-                <input type="number" id="roudwin" name="roudwin" min="0" step="1">
+            </div>
 
-                <label for="roundloose">Manches Perdus :</label>
-                <input type="number" id="roundloose" name="roundloose" min="0" step="1">
-
-                <label for="kills">Kills :</label>
-                <input type="number" id="kills" name="kills" min="0" step="1">
-
-                <label for="deaths">Morts :</label>
-                <input type="number" id="deaths" name="deaths" min="0" step="1">
-
-                <label for="asistes">Assistes :</label>
-                <input type="number" id="asistes" name="asistes" min="0" step="1">
-
-                <button type="submit">Soumettre</button>
-            </form>
-        </section>
+            <button type="submit">Soumettre</button>
+        </form>
 
         <section class="stats-section">
             <h2>Statistiques</h2>

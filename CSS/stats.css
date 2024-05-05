@@ -16,7 +16,7 @@ form select {
 }
 
 form input {
-    width: 97.3%;
+    width: 93.3%;
     padding: 8px;
     margin-bottom: 20px;
 }
@@ -46,4 +46,16 @@ form button:hover {
 
 .kills-bar progress, .deaths-bar progress {
     width: 100%;
+}
+
+/* Mise en page en colonnes pour le formulaire */
+form .column {
+    width: 47.137%; /* Ajustez la largeur des colonnes selon vos besoins */
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 5%; /* Ajoute une marge entre les colonnes */
+}
+
+form .column:last-of-type {
+    margin-right: 0; /* Supprime la marge à droite de la dernière colonne */
 }
