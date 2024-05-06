@@ -59,3 +59,17 @@ form .column {
 form .column:last-of-type {
     margin-right: 0; /* Supprime la marge à droite de la dernière colonne */
 }
+
+/* Ajoute des bordures à toutes les cellules du tableau */
+#stats-table td {
+    border: 1px solid #ddd; /* Couleur et épaisseur de la bordure */
+    padding: 8px; /* Espace à l'intérieur de chaque cellule */
+}
+
+/* Style pour les cellules de l'en-tête du tableau */
+#stats-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    background-color: #f2f2f2; /* Couleur de fond */
+    font-weight: bold; /* Texte en gras */
+}

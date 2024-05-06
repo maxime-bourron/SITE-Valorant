@@ -4,6 +4,9 @@ const statsForm = document.getElementById('stats-form');
 // Sélection du conteneur des statistiques
 const statsContainer = document.getElementById('stats-container');
 
+// Sélection du corps du tableau
+const statsTableBody = document.getElementById('stats-table-body');
+
 // Écouteur d'événement pour soumettre le formulaire
 statsForm.addEventListener('submit', function(event) {
     // Empêche le comportement par défaut du formulaire
@@ -11,10 +14,26 @@ statsForm.addEventListener('submit', function(event) {
 
     // Récupère les valeurs des champs du formulaire
     const result = statsForm.elements['result'].value;
+    const roundwin = parseInt(statsForm.elements['roundwin'].value);
+    const roundlose = parseInt(statsForm.elements['roundlose'].value);
     const map = statsForm.elements['map'].value;
     const agent = statsForm.elements['agent'].value;
     const kills = parseInt(statsForm.elements['kills'].value);
     const deaths = parseInt(statsForm.elements['deaths'].value);
+    const assists = parseInt(statsForm.elements['assists'].value);
+
+    // Crée une nouvelle ligne de tableau
+    const newRow = statsTableBody.insertRow(0);
+
+    // Ajoute des cellules à la ligne de tableau et y insère les valeurs du formulaire
+    newRow.insertCell().textContent = result;
+    newRow.insertCell().textContent = roundwin;
+    newRow.insertCell().textContent = roundlose;
+    newRow.insertCell().textContent = agent;
+    newRow.insertCell().textContent = kills;
+    newRow.insertCell().textContent = deaths;
+    newRow.insertCell().textContent = assists;
+    newRow.insertCell().textContent = map;
 
     // Calculer les pourcentages de kills et de morts
     const totalKills = kills;
@@ -30,41 +49,4 @@ statsForm.addEventListener('submit', function(event) {
     // Crée un nouvel élément div pour afficher les résultats
     const statItem = document.createElement('div');
     statItem.classList.add('stat-item');
-
-    // Génère le texte à afficher en fonction des valeurs soumises
-    let statText = ``;
-    switch(result) {
-        case 'win':
-            statText += 'Victoire';
-            break;
-        case 'loss':
-            statText += 'Défaite';
-            break;
-        case 'draw':
-            statText += 'Match nul';
-            break;
-        default:
-            statText += 'Résultat inconnu';
-    }
-    statText += ` sur ${map}`;
-    statText += ` avec ${agent}`;
-    
-    // Ajoute le nombre de kills au texte si une valeur est saisie
-    if (!isNaN(kills)) {
-        statText += `, ${kills} kills`;
-    }
-
-    // Ajoute le nombre de morts au texte si une valeur est saisie
-    if (!isNaN(deaths)) {
-        statText += `, ${deaths} morts`;
-    }
-
-    // Ajoute le texte généré à l'élément div
-    statItem.textContent = statText;
-
-    // Sélectionne l'élément qui est actuellement en haut (après les barres de progression)
-    const firstStatItem = document.querySelector('.stat-item');
-
-    // Ajoute l'élément div avant cet élément (après les barres de progression)
-    statsContainer.insertBefore(statItem, firstStatItem);
 });
