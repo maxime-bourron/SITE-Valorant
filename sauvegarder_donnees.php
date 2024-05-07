@@ -1,4 +1,17 @@
 <?php
+// Démarrer la session
+session_start();
+
+// Vérifier si l'ID de l'utilisateur est défini dans la session
+if (!isset($_SESSION['id_utilisateur'])) {
+    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+    header('Location: connexion.php');
+    exit;
+}
+
+// Récupérer l'ID de l'utilisateur à partir de la session
+$id_utilisateur = $_SESSION['id_utilisateur'];
+
 // Récupérer les données envoyées depuis le formulaire
 $result = isset($_POST['result']) ? $_POST['result'] : '';
 $roundwin = isset($_POST['roundwin']) ? intval($_POST['roundwin']) : 0;
@@ -18,7 +31,7 @@ if ($conn->connect_error) {
 }
 
 // Préparer et exécuter la requête SQL pour insérer les données dans la base de données
-$sql = "INSERT INTO stats (result, roundwin, roundlose, kills, deaths, assists, agent, map) VALUES ('$result', $roundwin, $roundlose, $kills, $deaths, $assists, '$agent', '$map')";
+$sql = "INSERT INTO stats (id_utilisateur, result, roundwin, roundlose, kills, deaths, assists, agent, map) VALUES ('$id_utilisateur', '$result', $roundwin, $roundlose, $kills, $deaths, $assists, '$agent', '$map')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Données insérées avec succès.";
@@ -29,4 +42,3 @@ if ($conn->query($sql) === TRUE) {
 // Fermer la connexion à la base de données
 $conn->close();
 ?>
-

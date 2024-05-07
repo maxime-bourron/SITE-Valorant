@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valorant - Accueil</title>
+    <title>Valorant - Inscription</title>
     <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/connexion.css">
 </head>
 <body>
     <header>
-        <h1>Valorant</h1>
-        <p>Un jeu de tir tactique en équipe développé et édité par Riot Games.</p>
+        <h1>Connexion</h1>
+        <p>Connectez vous pour avoir accés à vos statistiques.</p>
     </header>
 
     <nav>
@@ -23,11 +24,17 @@
     </nav>
 
     <main>
-        <h2>Bienvenue sur Valorant</h2>
-        <p>Valorant est un jeu de tir tactique multijoueur où deux équipes de cinq joueurs s'affrontent pour atteindre leurs objectifs.</p>
-        <img src="Images/Valorant.png" alt="Valorant">
-    </main>
+        <form id="connexion-form" action="traitement_connexion.php" method="post">
+            <label for="nom_utilisateur">Nom d'utilisateur :</label>
+            <input type="text" id="nom_utilisateur" name="nom_utilisateur" required>
 
+            <label for="mot_de_passe">Mot de passe :</label>
+            <input type="password" id="mot_de_passe" name="mot_de_passe" required>
+
+            <button type="connexion">Connexion</button>
+        </form>
+    </main>
+    
     <footer>
         <p>&copy; 2024 Valorant. Tous droits réservés.</p>
     </footer>

@@ -1,0 +1,29 @@
+/* Ajoutez des styles spécifiques pour la page d'inscription ici */
+
+#inscription-form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#inscription-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#inscription-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+}
+
+#inscription-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#inscription-form button:hover {
+    background-color: #0056b3;
+}
