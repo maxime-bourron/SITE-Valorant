@@ -16,11 +16,11 @@ statsForm.addEventListener('submit', function(event) {
     const result = statsForm.elements['result'].value;
     const roundwin = parseInt(statsForm.elements['roundwin'].value);
     const roundlose = parseInt(statsForm.elements['roundlose'].value);
-    const map = statsForm.elements['map'].value;
-    const agent = statsForm.elements['agent'].value;
     const kills = parseInt(statsForm.elements['kills'].value);
     const deaths = parseInt(statsForm.elements['deaths'].value);
     const assists = parseInt(statsForm.elements['assists'].value);
+    const agent = statsForm.elements['agent'].value;
+    const map = statsForm.elements['map'].value;
 
     // Crée une nouvelle ligne de tableau
     const newRow = statsTableBody.insertRow(0);
@@ -29,10 +29,10 @@ statsForm.addEventListener('submit', function(event) {
     newRow.insertCell().textContent = result;
     newRow.insertCell().textContent = roundwin;
     newRow.insertCell().textContent = roundlose;
-    newRow.insertCell().textContent = agent;
     newRow.insertCell().textContent = kills;
     newRow.insertCell().textContent = deaths;
     newRow.insertCell().textContent = assists;
+    newRow.insertCell().textContent = agent;
     newRow.insertCell().textContent = map;
 
     // Calculer les pourcentages de kills et de morts
@@ -49,4 +49,18 @@ statsForm.addEventListener('submit', function(event) {
     // Crée un nouvel élément div pour afficher les résultats
     const statItem = document.createElement('div');
     statItem.classList.add('stat-item');
+
+    // Établir une connexion à la base de données
+    const db = new XMLHttpRequest();
+
+    // Définir la méthode et l'URL pour la requête HTTP (POST pour envoyer des données)
+    db.open('POST', 'http://localhost/valorant-v0/sauvegarder_donnees.php', true);
+    db.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    // Préparer les données à envoyer
+    const formData = `result=${result}&roundwin=${roundwin}&roundlose=${roundlose}&kills=${kills}&deaths=${deaths}&assists=${assists}&agent=${agent}&map=${map}`;
+
+    // Envoyer la requête avec les données du formulaire
+    db.send(formData);
 });
+
