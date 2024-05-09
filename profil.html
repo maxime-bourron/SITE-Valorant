@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant - Profil</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Valorant</h1>
+        <p>Un jeu de tir tactique en équipe développé et édité par Riot Games.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="maps.html">Cartes</a></li>
+            <li><a href="stats.html">Statistiques</a></li>
+            <li><a href="inscription.html">Inscription</a></li>
+            <li><a href="connexion.html">Connexion</a></li>
+            <li><a href="profil.html">Profil</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Votre Profil</h2>
+        <div id="profile-info">
+            <!-- Les informations du profil seront chargées ici -->
+        </div>
+        
+        <div style="margin-top: 20px;">
+            <form id="logout-form" action="logout.php" method="post">
+                <button type="submit">Déconnexion</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Valorant. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Fonction pour charger les informations du profil via AJAX
+        function loadProfileInfo() {
+            // Créer un objet XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+
+            // Spécifier la méthode et l'URL de la requête
+            xhr.open("GET", "profile.php", true);
+
+            // Définir le type de réponse
+            xhr.responseType = "json";
+
+            // Définir la fonction de rappel lorsque la requête est terminée
+            xhr.onload = function() {
+                // Vérifier si la requête a réussi
+                if (xhr.status === 200) {
+                    // Récupérer les données JSON de la réponse
+                    var profileInfo = xhr.response;
+
+                    // Afficher les informations du profil sur la page
+                    document.getElementById("profile-info").innerHTML = "ID Utilisateur : " + profileInfo.id_utilisateur + "<br>Nom d'utilisateur : " + profileInfo.nom_utilisateur;
+                    // Ajoutez d'autres éléments de profil ici si nécessaire
+                } else {
+                    // Afficher un message d'erreur si la requête a échoué
+                    console.error("Erreur lors du chargement des informations du profil.");
+                }
+            };
+
+            // Envoyer la requête
+            xhr.send();
+        }
+
+        // Appeler la fonction pour charger les informations du profil lors du chargement de la page
+        window.onload = loadProfileInfo;
+    </script>
+</body>
+</html>

@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 }
 
 // Préparer et exécuter la requête SQL pour récupérer les données de l'utilisateur depuis la base de données
-$sql = "SELECT result, roundwin, roundlose, kills, deaths, assists, agent, map FROM stats WHERE id_utilisateur = '$id_utilisateur'";
+$sql = "SELECT result, roundwin, roundlose, kills, deaths, assists, agent, map FROM stats WHERE id_utilisateur = '$id_utilisateur' ORDER BY id_stat DESC";
 $result = $conn->query($sql);
 
 $donnees = [];
